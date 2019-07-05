@@ -22,6 +22,8 @@
 
 + You have to create the folders manually, following the structure stated in the last part! Make sure put train and test data into `data/` .
 
+  Download Dataset Here: [Google Drive](https://drive.google.com/open?id=1xQNk7vWV0hPuE08Ks1RrZmY5jEWKYMsU)
+
 + Open your cmd, enter the `code/`:
 
   ```bash
