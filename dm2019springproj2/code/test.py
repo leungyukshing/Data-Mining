@@ -1,6 +1,12 @@
 import numpy as np
 from mpi4py import MPI
 import pandas as pd
+
+'''
+  This script is used to test some functions. You can just ignore it.
+'''
+
+
 # Get MPI info
 '''
 comm = MPI.COMM_WORLD
@@ -68,9 +74,9 @@ print(data6.shape)
 
 '''
 
-data1 = pd.read_csv('./test/t1.csv')
-data1.to_csv('./test/result.csv', header=1, index=False, mode='a')
+data1 = pd.read_csv('../test/t1.csv')
+data1.to_csv('../test/result.csv', header=1, index=False, mode='a')
 
-data1 = pd.read_csv('./test/t2.csv', header=1)
+data1 = pd.read_csv('../test/t2.csv', header=1)
 
-data1.to_csv('./test/result.csv', header=1, index=False, mode='a')
+data1.to_csv('../test/result.csv', header=1, index=False, mode='a')

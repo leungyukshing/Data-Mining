@@ -12,6 +12,7 @@ from sklearn.externals import joblib
 import warnings
 warnings.filterwarnings("ignore")
 
+
 # Get MPI info
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -61,21 +62,21 @@ if rank >= 0 and rank <= 5:
     n = len(avg)
     avg_array = np.array(avg)
     result = pd.DataFrame({'Id': list(range(start_ID[rank], start_ID[rank] + test_file_length[rank])), 'Predicted': avg_array.astype(np.float64)})
-    result.to_csv('./result/result_' + str(rank + 1) + '.csv', float_format='%lf', index=False)
+    result.to_csv('../result/result_' + str(rank + 1) + '.csv', float_format='%lf', index=False)
 else:
     # each process test seperatly
     if (rank >= 6 and rank <= 10):
-        X = pd.read_csv('./data/test1.csv', header=None)
+        X = pd.read_csv('../data/test1.csv', header=None)
     elif (rank >= 11 and rank <= 15):
-        X = pd.read_csv('./data/test2.csv', header=None)
+        X = pd.read_csv('../data/test2.csv', header=None)
     elif (rank >= 16 and rank <= 20):
-        X = pd.read_csv('./data/test3.csv', header=None)
+        X = pd.read_csv('../data/test3.csv', header=None)
     elif (rank >= 21 and rank <= 25):
-        X = pd.read_csv('./data/test4.csv', header=None)
+        X = pd.read_csv('../data/test4.csv', header=None)
     elif (rank >= 26 and rank <= 30):
-        X = pd.read_csv('./data/test5.csv', header=None)
+        X = pd.read_csv('../data/test5.csv', header=None)
     elif (rank >= 31 and rank <= 35):
-        X = pd.read_csv('./data/test6.csv', header=None)
+        X = pd.read_csv('../data/test6.csv', header=None)
     
     modelNum = rank % 5
     if modelNum == 0:

@@ -1,5 +1,4 @@
 import numpy as np
-from mpi4py import MPI
 import pandas as pd
 
 from sklearn import tree
@@ -11,18 +10,17 @@ from sklearn.model_selection import train_test_split
 
 from sklearn.externals import joblib
 
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import GridSearchCV
 
 # Read Train Data
-X = pd.read_csv('./data/all_train.csv')
-y = pd.read_csv('./data/all_label.csv')
+X = pd.read_csv('../data/all_train.csv')
+y = pd.read_csv('../data/all_label.csv')
 
-rf0 = RandomForestRegressor(oob_score=True, random_state=10)
+rf0 = GradientBoostingRegressor(n_estimators=2000, learning_rate=0.001, loss='ls')
 rf0.fit(X, y)
 y_pred = rf0.predict(X)
 
-print(rf0.oob_score_)
 print('R2 score (Train): %f' % r2_score(y, y_pred))
 
-joblib.dump(rf0, './model/sklearn_model.model')
+joblib.dump(rf0, '../model/sklearn_GBDT_model_1500.model')

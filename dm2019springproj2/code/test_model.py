@@ -14,6 +14,11 @@ import pydotplus
 from sklearn.tree import export_graphviz
 from IPython.display import Image
 
+
+'''
+  This script is used to check predition and visualize model. You can just ignore it.
+'''
+
 model1 = joblib.load('./model/regressiontree1.model')
 prediction1 = model1.predict([[-0.50568, 2, -218, -15, 151, -1, -74, -0.49038, 0.4587, 0.46732, -0.47841, 0.99324, 0.48148]])
 print(prediction1)

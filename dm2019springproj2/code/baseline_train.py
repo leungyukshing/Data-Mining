@@ -122,8 +122,8 @@ def single_regression_tree(X, y, params):
 print("Hi, I am " + str(rank + 1) + " process")
 
 # Read Train Data
-X = pd.read_csv('./data/train' + str(rank + 1) + '.csv')
-y = pd.read_csv('./data/label' + str(rank + 1) + '.csv')
+X = pd.read_csv('../data/train' + str(rank + 1) + '.csv')
+y = pd.read_csv('../data/label' + str(rank + 1) + '.csv')
 
 # Data Normalization(optional)
 '''
@@ -133,7 +133,7 @@ X = sc.transform(X)
 '''
 
 # Read Test Data
-Test = pd.read_csv('./data/test' + str(rank + 1) + '.csv')
+Test = pd.read_csv('../data/test' + str(rank + 1) + '.csv')
 
 # Construct and predict
 params = [3, 6, None]
@@ -149,12 +149,12 @@ rtArr, test_errorArr, test_scoreArr, train_errorArr, train_scoreArr = single_reg
 for i in range(0, 150):
     print("In Process " + str(rank + 1) + ", No." + str(i) + "tree" + ", train MSE error = " + str(train_errorArr[i]) + ", r2score = " + str(train_scoreArr[i]) + ", validation MSE error = " + str(test_errorArr[i]) + ", r2_score = " + str(test_scoreArr[i]))
 for i in range(len(rtArr)):
-    joblib.dump(rtArr[i], './model/RT' + str(rank) + '_' +  str(i) + '.model')
+    joblib.dump(rtArr[i], '../model/RT' + str(rank) + '_' +  str(i) + '.model')
     
 # send to the root
 # joblib.dump(rt, './model/regressiontree' + str(rank + 1) + '.model')
 
 # Visulize one model
-dot_data = tree.export_graphviz(rtArr[0], out_file=None)
-graph = pydotplus.graph_from_dot_data(dot_data)
-graph.write_pdf('./result/test_model.pdf')
+# dot_data = tree.export_graphviz(rtArr[0], out_file=None)
+# graph = pydotplus.graph_from_dot_data(dot_data)
+# graph.write_pdf('../result/test_model.pdf')
