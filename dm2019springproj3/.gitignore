@@ -1,2 +1,3 @@
-dataset/
-dataset.rar
+/data
+/model
+*.zip
