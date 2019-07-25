@@ -2,9 +2,11 @@
 
 ## Intro
 
-中山大学数据挖掘课程项目2项目代码
+This is a regression task. Given 10m data samples as train set, each of 13 features, please predict the label (range unlimited) for the whole test set containing 10915121 data samples. You are encouraged to design and implement **a parallel decision tree algorithm**, i.e. GDBT or Random Forest.
 
-使用MPI实现并行化随机森林。
+
+
+Here I've implemented a parallel Random Forest based on MPI.
 
 ## 文件结构
 
