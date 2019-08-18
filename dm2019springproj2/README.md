@@ -4,9 +4,7 @@
 
 This is a regression task. Given 10m data samples as train set, each of 13 features, please predict the label (range unlimited) for the whole test set containing 10915121 data samples. You are encouraged to design and implement **a parallel decision tree algorithm**, i.e. GDBT or Random Forest.
 
-
-
-Here I've implemented a parallel Random Forest based on MPI.
+Here I've implemented a parallel Random Forest based on [MPI](<https://en.wikipedia.org/wiki/Message_Passing_Interface>).
 
 ## 文件结构
 
@@ -45,6 +43,10 @@ Here I've implemented a parallel Random Forest based on MPI.
   ```
 
   Use this script to combine the results into one file, which is required to summit to the website.
+
+## Thoughts
+
+Due to the extremely large data, we have to parallelize the input and output process. Multi-processes allows us to make full use of our computer sources. Comparing sklearn library in Python, my method requires less time but giving an equivalent result!
 
 
 
